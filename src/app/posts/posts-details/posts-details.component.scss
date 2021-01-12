@@ -1,0 +1,44 @@
+.top-toolbar {
+  position: fixed;
+  top: 0;
+}
+
+.top-toolbar-title {
+  // margin-left: 8px;
+  width: 100%;
+  text-align: center;
+  padding-right: 40px;
+}
+
+.top-toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.content-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: calc(100% - 40px); // total - padding-y
+  overflow-y: auto;
+  background-color: white;
+}
+
+.content {
+  max-width: 680px;
+  margin: auto;
+}
+
+#disqus_thread {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: calc(100% - 20px); // total - padding-x
+  margin-top: 50px;
+}
+
+markdown {
+  font-size: 21px;
+
+  pre {
+    font-size: 14px;
+    overflow-x: auto;
+  }
+}

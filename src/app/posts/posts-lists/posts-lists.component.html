@@ -1,0 +1,43 @@
+<mat-toolbar color="primary"
+             class="top-toolbar">
+  <button mat-icon-button
+          (click)="layoutService.toggleLeftSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="top-toolbar-title">
+    <a routerLink="/"
+       style="text-decoration: none;color: inherit;">esdegan</a>
+  </h1>
+</mat-toolbar>
+
+<div class="content-container">
+  <div class="content">
+
+    <div *ngIf="!posts?.length && !isFetching">
+      No posts yet.
+    </div>
+
+    <ng-container *ngIf="posts?.length">
+      <mat-card style="margin-bottom: 50px;"
+                *ngFor="let post of posts">
+        <mat-card-header>
+          <div mat-card-avatar
+               style="background-size: cover;"
+               [style]="{
+              'background-image': 'url('+post?.author.picture.url+')'
+             }">
+          </div>
+          <mat-card-title>{{ post?.author.name }}</mat-card-title>
+          <mat-card-subtitle>{{ post?.createdAt | date:'mediumDate' }}</mat-card-subtitle>
+        </mat-card-header>
+        <h1>
+          <a [routerLink]="['/posts', post?.slug]"
+             style="text-decoration: none;color: inherit;">
+            {{ post?.title }}
+          </a>
+        </h1>
+      </mat-card>
+    </ng-container>
+
+  </div>
+</div>
